@@ -912,6 +912,7 @@ if __name__ == "__main__":
     suffix = 'th' if 11 <= day <= 13 else {1: 'st', 2: 'nd', 3: 'rd'}.get(day % 10, 'th')
     formatted_date = now.strftime(f"%d{suffix} %B %I.%M%p")
     connection_message = f"Connection Established - Zava Chat App - {formatted_date}"
+
     with tracer.start_as_current_span(connection_message):
         import uvicorn
         port = int(os.environ.get("PORT", 8000))
